@@ -87,7 +87,7 @@ module latch_register_file_1r_1w_all_test_wrap
    register_file_1r_1w_all_i
    (
       .clk          ( clk               ),
-
+      .rst_n        ( rst_n             ),
       .ReadEnable   ( ReadEnable_muxed  ),
       .ReadAddr     ( ReadAddr_muxed    ),
       .ReadData     ( ReadData          ),

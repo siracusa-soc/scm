@@ -15,18 +15,20 @@ module latch_register_file_1r_1w_all
    parameter NUM_BYTE      = DATA_WIDTH/8
 )
 (
-   input  logic                                clk,
+   input logic                                      clk,
+    /// Unused for latch based variant. Required for interface compatibility
+   input logic                                      rst_n,
 
    // Read port
-   input  logic                                ReadEnable,
-   input  logic [ADDR_WIDTH-1:0]               ReadAddr,
-   output logic [DATA_WIDTH-1:0]               ReadData,
+   input logic                                      ReadEnable,
+   input logic [ADDR_WIDTH-1:0]                     ReadAddr,
+   output logic [DATA_WIDTH-1:0]                    ReadData,
 
    // Write port
-   input  logic                                WriteEnable,
-   input  logic [ADDR_WIDTH-1:0]               WriteAddr,
-   input  logic [NUM_BYTE-1:0][7:0]            WriteData,
-   input  logic [NUM_BYTE-1:0]                 WriteBE,
+   input logic                                      WriteEnable,
+   input logic [ADDR_WIDTH-1:0]                     WriteAddr,
+   input logic [NUM_BYTE-1:0][7:0]                  WriteData,
+   input logic [NUM_BYTE-1:0]                       WriteBE,
 
    // Memory content (false paths!)
    output logic [2**ADDR_WIDTH-1:0][DATA_WIDTH-1:0] MemContent
